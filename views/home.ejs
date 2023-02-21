@@ -1,18 +1,44 @@
 
 <%- include('partials/header'); -%>
 
-    <h1>Accueil</h1>
-    <p><%= homeText %></p>   
+    <div class="container top-container">
+        <h1>Accueil</h1>
+        <p><%= homeText %></p>
+    </div>
+    <div class="container">
+        <h1>Collections</h1>
+        <div class="row  middle-container" style="align-items: center;">
+            <div class="col-md-2" >
+                <img class="images" src="/img/img1.jpg" alt="img1">
+            </div>
+            <div class="col-md-2">
+                <img  class="images" src="/img/img2.jpg" alt="img2">
+            </div>
+            <div class="col-md-2">
+                <img class="images"  src="/img/img3.jpg" alt="img3">
+            </div>
+            <div class="col-md-2">
+                <img class="images"  src="/img/img4.jpg" alt="img4">
+            </div>
+            <div class="col-md-2">
+                <img class="images" src="/img/img5.JPG" alt="img5">
+            </div>
+            <div class="col-md-2">
+                <img class="images" src="/img/img6.jpg" alt="img6">
+            </div>
+        </div>
+    </div>
+    <hr>
 
     <%  postsContent.forEach(function(post){ %>
-    <h1><%= post.title %></h1>
-    <p><%= post.textBody.substring(0, 120) + " ..."  %>
-    <a href="/posts/ <%=post.title %>" > readMore</a>
-    </p>
-    
+    <div class="container-md">
+        <h1><%= post.title %></h1>
+        <p><%= post.textBody.substring(0, 120) + " ..."  %>
+        <a href="/posts/ <%=post.title %>" > readMore</a>
+        </p>
+    </div>
+        
     <% }) %>
-
-    
 
 <%- include('partials/footer'); -%>
 
