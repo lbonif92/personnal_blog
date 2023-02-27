@@ -71,6 +71,16 @@ hr {
     color: #fff;
 }
 
+.carousel {
+    width: 80%;
+}
+
+.pepCarousel {
+    padding: 2%;
+    display: flex;
+    margin-left: 250px;
+}
+
 /*color:
 hard:
 prim: #1C6758
