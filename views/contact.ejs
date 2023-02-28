@@ -1,9 +1,63 @@
 <%- include('partials/header'); -%>
 
 <div class="container-md">
-    <h1>Contact</h1>
 
-    <p><%= contactText %></p> 
+        <h1>Contact</h1>
+        <p><%= contactText %></p>
+
+    <div class="container-md w-50 m-auto">
+        <h2>Mes coordonnées:</h2>
+        <p>Number: adress: mail ....</p>
+        <a class="btn btn-primary" href="mailto:loic.boniface@gmail.com?
+        method="post"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color: #3D8361">
+        Envoi moi un mail
+        </a>
+    </div>
+    
+    <div class="container-md w-50 m-auto">
+        <div class="form-contact">
+            <form action="/contact" method="post">
+              <img class="mb-4" src="images/logo.png" alt="" width="" height="160">
+              <h2 class="h3 mb-3 fw-normal">OU, pour me contacter: </h2>
+          
+              <div class="form-floating">
+                  <input type="name" class="form-control" name="prenomInput" placeholder="name">
+                  <label for="floatingInput">Prenom</label>
+                </div>
+              
+              <div class="form-floating">
+                <input type="name" class="form-control" name="nomInput" placeholder="name">
+                <label for="floatingInput">Nom</label>
+              </div>
+          
+              <div class="form-floating">
+                <input type="email" class="form-control" name="emailInput"  placeholder="name@example.com">
+                <label for="floatingInput">Adresse email</label>
+              </div>
+        
+              <div class="form-floating">
+                <input type="text" class="form-control" name="objetDuMessage"  placeholder="objet">
+                <label for="floatingInput">Objet du message</label>
+              </div>
+    
+              <div class="form-floating">
+                <textarea class="form-control" name="messageInput" placeholder="message..." id="floatingTextarea2" style="height: 150px"></textarea>
+                <label for="floatingTextarea2">Laisse ton message ci-dessous :</label>
+              </div>
+        
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="w-20 btn btn-lg btn-primary" type="submit" style="background-color: #3D8361">
+                Me contacter
+                </button>
+              </div>
+              
+            </form>
+        </div>
+    </div>
+    
 </div>
+
 
 <%- include('partials/footer'); -%>
