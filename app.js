@@ -87,7 +87,13 @@ app.get("/posts/:postName", function(req, res){
     }
   });
   
-  
+});
+
+// GET route arbres 
+app.get("/arbres/:arbreName", function(req, res){
+
+  const parameters = _.capitalize(req.params.arbreName);
+  res.render("arbres",{arbreName: parameters});
 });
 
 // GET route 'about'

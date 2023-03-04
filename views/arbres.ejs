@@ -2,9 +2,62 @@
 
 <div class="container-md">
     <h1>Arbres</h1>
-    <img src="" alt="">
-    <p><%= ArbresText %></p> 
+
+    <div class="container-md">
+        <h2>Projet du <%= arbreName %></h2>
+        <div class="schemaProject">
+            <img class="startPictProject" src="/img/tab1<%= arbreName %>.jpg" alt="">
+            <div class="arrow"><i class="fa-sharp fa-solid fa-minus"></i>
+                <i class="fa-sharp fa-solid fa-minus"></i>
+                <i class="fa-sharp fa-solid fa-minus"></i>
+                <i class="fa-sharp fa-solid fa-minus"></i>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <img class="endPictProject" src="/img/tab2<%= arbreName %>.jpg" alt="">
+        </div>
+    </div>
+    <div class="container-md">
+        <h2>Travaux sur <%= arbreName %></h2>
+        <div class="chronologie">
+            <button class="btnChrono"type="submit">2019</button>
+            <button class="btnChrono" type="submit">2020</button>
+            <button class="btnChrono" type="submit">2021</button>
+            <button class="btnChrono" type="submit">2022</button>
+            <button class="btnChrono" type="submit">A venir</button>
+        </div>
+    </div>
+    <div class="container-md">
+        <h2>Fiche espèce du <%= arbreName %></h2>
+        <div class="ficheEspece">
+            <p>Nom: ... ;  etc...
+            </p>
+        </div>
+        <div class="illustrationEspece">ICON</div>
+    </div>
+    <div class="container-md">
+        <h2>Méthode de culture appliquée au <%= arbreName %></h2>
+        <div class="cultureDetail">
+            <p>exposition: Soleil de xx à xx, substrat: mix pumice pouzzolane</p>
+        </div>
+    </div>
 </div>
 
-
 <%- include('partials/footer'); -%>
+
+<!-- 
+<div class="fleche">===></div>
+        <div class="tab2">
+            <img class="tab img" src="/img/tab2<%= arbreName %>.jpg" alt="">
+        </div>
+    </div>
+    <div class="chronolog">
+        <h2>Travaux</h2>
+        <div>Date1</div>
+        <div>Date2</div>
+        <div>Date3</div>
+        <div>Date4</div>
+        <div>A venir</div>
+    </div>
+    <div class="ficheArbres">
+        <div class="fiche">tableau ou liste à faire</div>
+        <div class="ficheIcon">icon</div> -->

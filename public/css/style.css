@@ -25,6 +25,34 @@ hr {
     width: 145px;
 }
 
+.schemaProject {
+    display:block;
+    margin: auto;
+}
+
+.startPictProject {
+    display: inline-block;
+    margin: 15px 0px 15px 100px;
+    height: 350px;
+}
+
+.arrow {
+    display: inline-block;
+    margin: auto 125px;
+}
+.chronologie {
+    align-items: center;
+}
+
+.btnChrono {
+    margin: auto;
+}
+.endPictProject {
+    display: inline-block;
+    margin: 15px 25px 15px 25px;
+    height: 350px;
+}
+
 .top-container {
     margin-top: 2em;
     margin-bottom: 2em;
