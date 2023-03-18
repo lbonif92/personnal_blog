@@ -6,6 +6,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const port = 3000;
 const _ = require("lodash");
+const ficheEspeces = require('./ficheEspeces.json');
 
 const app = express();
 
@@ -92,8 +93,11 @@ app.get("/posts/:postName", function(req, res){
 // GET route arbres 
 app.get("/arbres/:arbreName", function(req, res){
 
-  const parameters = _.capitalize(req.params.arbreName);
-  res.render("arbres",{arbreName: parameters});
+  const especes = _.capitalize(req.params.arbreName);
+  res.render("arbres",{
+    arbreName: especes,
+    nomCommun: ficheEspeces.Nom_commun
+  });
 });
 
 // GET route 'about'

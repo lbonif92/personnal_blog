@@ -22,8 +22,27 @@ hr {
 }
 
 .images {
-    width: 145px;
+  --s: 145px;   /* the size of the image */
+  --b: 8px;     /* the border thickness*/
+  --g: 14px;    /* the gap */
+  --c: #D95B43; /* the color */
+  
+  width: var(--s);
+  aspect-ratio: 1;
+  outline: calc(var(--s)/2) solid #0009;
+  outline-offset: calc(var(--s)/-2);
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.images:hover{
+    outline: var(--b) solid var(--c);
+  outline-offset: var(--g);
+}
+
+.images + .images {
+    border-radius: 50%;
+  }
 
 .schemaProject {
     display:block;
@@ -59,7 +78,6 @@ hr {
 }
 
 .middle-container {
-    background-color: white;
     margin-top: 2em;
     margin-bottom: 2em;
     text-align: center;
