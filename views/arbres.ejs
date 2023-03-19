@@ -19,18 +19,18 @@
     <div class="container-md">
         <h2>Travaux sur <%= arbreName %></h2>
         <div class="chronologie">
-            <button class="btnChrono"type="submit">2019</button>
-            <button class="btnChrono" type="submit">2020</button>
-            <button class="btnChrono" type="submit">2021</button>
-            <button class="btnChrono" type="submit">2022</button>
-            <button class="btnChrono" type="submit">A venir</button>
+
+            <%  travaux.forEach(function(date){ %>
+                <a href="/posts/ <%=date.title %>"><%= date.title %></a>
+             <% }) %>
+
         </div>
     </div>
     <div class="container-md">
         <h2>Fiche espèce du <%= arbreName %></h2>
         <div class="ficheEspece">
             <ul>
-                <li>Nom commun: <%= nomCommun %></li>
+                <li>Nom commun: </li>
                 <li>Famille:</li>
                 <li></li>
                 

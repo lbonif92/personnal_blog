@@ -4,12 +4,20 @@
 
 <form action="/compose" method="post">
     <div>
+    <label class="form-label"  for="indexArbre">Arbre à mettre à jour</label>
+    <select class="form-select" aria-label="Default select example" name="indexArbre" id="indexArbre">
+        <option selected>Arbre en question ?</option>
+        <option value="taxus">Taxus baccata</option>
+        <option value="pinus">Pinus thunbergii</option>
+        <option value="3">Acer buerger</option>
+        <option value="4">...</option>
+    </select>
     <label class="form-label">Title</label>
     <input class="form-control" type="text" name="titleText">
     <label>Post</label>
     <textarea class="form-control" rows="5" cols="60" name="bodyText" placeholder="Enter text"></textarea>
     <br>
-    <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    <button class="btn btn-primary" type="submit" name="button" style="background-color: #3D8361">Publish</button>
     </div>
     
     

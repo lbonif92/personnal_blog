@@ -25,7 +25,7 @@ hr {
   --s: 145px;   /* the size of the image */
   --b: 8px;     /* the border thickness*/
   --g: 14px;    /* the gap */
-  --c: #D95B43; /* the color */
+  --c: #D6CDA4; /* the color */
   
   width: var(--s);
   aspect-ratio: 1;

@@ -15,15 +15,17 @@ mongoose.set('strictQuery', true);
 mongoose.connect('mongodb://127.0.0.1:27017/blogDB');
 
 
-// texte par défault des différentes pages
+// texte et data par défault des différentes pages
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Donec sed mi vel mauris tincidunt bibendum nec auctor mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec ut placerat mi. Nulla facilisi. ";
 const pepinieresContent = "Etiam vel turpis eu tortor mollis porttitor tincidunt imperdiet odio. Phasellus tempus sapien vel erat blandit pretium. Vestibulum vulputate metus nibh, eget porttitor leo egestas in. Curabitur laoreet sollicitudin lobortis. Nulla nisi metus, tincidunt quis imperdiet ac, porttitor a ex. Nulla elit nunc, porta in massa id, ullamcorper feugiat urna. Etiam vestibulum pellentesque tortor, id congue elit semper a. Integer nulla nisl, sodales a porttitor ut, commodo sed ipsum. Sed a dapibus tortor. In quis sem nec erat pellentesque maximus eu non urna. Pellentesque eget congue tortor. Nam quis enim vel purus bibendum euismod a vestibulum eros.";
 const arbresContent = "Description ..."
+const collection = ["Taxus baccata", "Pinus Thunbergii", "Acer buerger"];
 
 // création d'un schéma pour les 'posts' de l'accueil
 const postSchema = {
+  indexArbre: String,
   title: String,
   textBody: String
 }
@@ -90,15 +92,26 @@ app.get("/posts/:postName", function(req, res){
   
 });
 
-// GET route arbres 
+
+// GET route 'Arbres'
 app.get("/arbres/:arbreName", function(req, res){
 
   const especes = _.capitalize(req.params.arbreName);
-  res.render("arbres",{
-    arbreName: especes,
-    nomCommun: ficheEspeces.Nom_commun
-  });
+  const parameters = _.lowerCase(req.params.arbreName)
+
+  Post.find({"indexArbre" : parameters}, function(err, post){
+    if (err){
+      console.log(err);
+    } else {
+      res.render("arbres", 
+      { ArbresText: arbresContent, 
+        arbreName: especes,
+        travaux: post,
+      });
+      };
+  })
 });
+
 
 // GET route 'about'
 app.get("/about", function(req, res){
@@ -115,10 +128,7 @@ app.get("/pepinieres", function(req, res){
   res.render("pepinieres", {introPep: pepinieresContent});
 })
 
-// GET route 'Arbres'
-app.get("/arbres", function(req, res){
-  res.render("arbres", {ArbresText: arbresContent});
-})
+
 
 
 // GET route' compose' ==> pour écrire du nouveau contenu
@@ -130,6 +140,7 @@ app.get("/compose", function(req, res){
 app.post("/compose", function(req, res){
 
   const newPost = new Post ( {
+    indexArbre: req.body.indexArbre,
     title: req.body.titleText,
     textBody: req.body.bodyText
   });
