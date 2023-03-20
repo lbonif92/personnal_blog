@@ -1,16 +1,12 @@
 {
-    "Famille" : "Taxaceace",
-    "Genre" : "Taxus",
-    "Espèce" : "Taxus baccata",
-    "Nom_commun" : "If",
-    "Vitesse_de_croissance" : "Très lente",
-    "Exposition_idéale" : "soleil ou mi-ombre",
-    "Arrosage" : "Humide mais drainant",
-    "Fréquence_de_rempotage" : "3/4ans sur arbres matures",
-    "Rusticité" : "jusqu'à -15°C",
-    "Longévité" : "Très longue (centenaire/multicentenaire)",
-    "Phytosanitaire" : "Phytophtora, ou pourritures des racines",
-    "Styles_principaux" : "chokkan (droit formel)",
-    "Particularitées" : ["retrait de sève", "bourgeonnement en arrière sur bois"]
-
+    "collection": {
+        "taxus": {
+            "famille": "Taxaceae",
+            "type": "conifere"
+        },
+        "pinus": {
+            "famille": "Pinus",
+            "type": "conifere"
+        }
+    }
 }

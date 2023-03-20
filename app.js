@@ -6,7 +6,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const port = 3000;
 const _ = require("lodash");
-const ficheEspeces = require('./ficheEspeces.json');
+const ficheEspeces = require('./ficheEspeces.json');  
 
 const app = express();
 
@@ -63,8 +63,6 @@ app.get("/", function(req, res){
       });
     }
   });
-
-
 })
 
 // GET route postpage (readmore)
@@ -100,6 +98,7 @@ app.get("/arbres/:arbreName", function(req, res){
   const parameters = _.lowerCase(req.params.arbreName)
 
   Post.find({"indexArbre" : parameters}, function(err, post){
+
     if (err){
       console.log(err);
     } else {
@@ -107,9 +106,12 @@ app.get("/arbres/:arbreName", function(req, res){
       { ArbresText: arbresContent, 
         arbreName: especes,
         travaux: post,
+        filter: parameters,
+        fiche: ficheEspeces.collection[parameters],
       });
-      };
+    };
   })
+  
 });
 
 
